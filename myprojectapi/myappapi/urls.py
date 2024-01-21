@@ -2,9 +2,9 @@ from django.urls import path
 from . import views
 from rest_framework.routers import DefaultRouter
 
-router = DefaultRouter(trailing_slash=False)
-router.register("books", views.BookView, basename="books")
-urlpatterns = router.urls
+# router = DefaultRouter(trailing_slash=False)
+# router.register("books", views.BookView, basename="books")
+# urlpatterns = router.urls
 
 
 # from rest_framework.routers import SimpleRouter
@@ -12,7 +12,10 @@ urlpatterns = router.urls
 # router.register("books", views.BookView, basename="books")
 # urlpatterns = router.urls
 
-# urlpatterns = [
+urlpatterns = [
+    path("books/", views.BookList.as_view()),
+    path("books/<int:pk>", views.Book.as_view()),
+
     # path("books", views.books), 
     # path("orders", views.Orders.list_orders),
     # path("books/<int:pk>", views.BookView.as_view()),
@@ -31,4 +34,4 @@ urlpatterns = router.urls
     #     }
     # ))
     
-# ]
+]
