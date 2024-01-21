@@ -28,4 +28,14 @@ All generic view classes require a queryset and a serializer to work properly.
 | RetrieveDestroyAPIView | GET, DELETE | Display a single resource and delete it |
 | RetrieveUpdateDestroyAPIView | GET, PUT, PATCH, DELETE | Display, replace or update and delete a single resource |
 
+## Return items for the authenticated user only 
+
+```
+class OrderView(generics.ListCreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [IsAuthenticated]
+    def get_queryset(self):
+        return Order.objects.all().filter(user=self.request.user)
+```
 
