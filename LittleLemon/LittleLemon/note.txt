@@ -1,0 +1,5 @@
+role,username,password
+admin,admin,1111,
+manager,olena,SimplePasword
+user,olga,SimplePassword
+delivere_crew,deliverer,SimplePassword
